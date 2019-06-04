@@ -1,4 +1,4 @@
-git config --global --edit  -----Open the global configuration file in a text editor for manual editing.
+        git config --global --edit  -----Open the global configuration file in a text editor for manual editing.
 	git reflog.                 ------It give detailed information about the log changes in the local
 	git reflog --relative-date  ------flag to show date
 	git reflog --all            ------ show all refs
