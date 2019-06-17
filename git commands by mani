@@ -1,12 +1,8 @@
         git config --global --edit  -----Open the global configuration file in a text editor for manual editing.
-	git reflog.                 ------It give detailed information about the log changes in the local
-	git reflog --relative-date  ------flag to show date
-	git reflog --all            ------ show all refs
-	git commit --amend.         ------ replace the previous commit with the new commit(Replace the last commit with the staged changes and last commit combined)
-	git log -p                  ------  Display the full diff of each commit.
 	git log --author= ”<authorname>” -----Search for commits by a particular author
 	git diff --cached.  --------------- if u are in staging area then by this command we can see the difference from staging to workspace
-        ******
+        
+	=============================================
 	by defalut if u create or push it will go to master branch....But i want the default branch is some other branch not as master.....then go to settings----branches----there chande default branch master to some other branch -----then update
 	go to settings---notifications----give from mail id and approver mail id-----so when u Setup email addresses to receive notifications when push events are triggered
 	If u want to add key -----go to settings---deploy keys----add u r local key ----then add---so by doing this we can push local to github
@@ -17,6 +13,75 @@
 	ans)In the profile settings---go to security---enable 2 factor authetication(using mobile app and through sms )
 	git hub will give recovey keys if u create 2 factor authetication...so if u loss u r authetication ---using this keys we can recover the git hub account
 	
-	================================================
+	=============================================
 	
 	we can block users---by going profile settings----block users---and give mail id 
+	
+	==============================================
+	
+	
+        Difference between Git log ang git log -p ????
+           Git log —just display commit msg and actor name and date
+           Git log -p—— Display the full diff of each commit.
+           Which file u changed…which file u committed detailed difference b/w commits it show 
+	   
+	==============================================
+	
+	what is Git commit —amend???
+
+           Suppose we have created a file we have written some spelled mistakes if that file u have added and committed into it
+           If u check git log u can see commit id
+           U have changed spelling mistakes and commit again it will create one more commit id for the same file
+           Suppose if I do git reset —hard old commit id(that means spelled mistakes commit id) so what will happen it will reset but the old changes i.e mistakes will be there like that only
+           Suppose we have changed spellings mistakes and while adding
+           Git add .
+           Git commit —amend “as”
+           Then it will create commit id with new and the mistakes also has overridden 
+           And also commit id is mixed with this commit
+           Replace the last commit with the staged changes and last commit combined
+	   
+	 ===============================================
+	 
+	 what is upstream and downstream in git ??
+	    
+           Upstream---means push
+           Downstream-------means pull
+	   
+        ================================================
+	
+	Difference b/w ssh and GPG key ??
+           Ssh means passwordless connection b/w u r local and GitHub
+           GPG for file transfer that i.e the file u sent is encoded in local  it is decoded in server
+           Message is a generic term that can mean files, emails, text; whatever. Both GPG and PGP work the same; public keys are exchanged between individuals or published on the internet. To securely send a file or message to a user, you use the recipient's public key to encrypt the message. Only the user that holds the private key can decrypt the message
+	   
+	===============================================
+	
+       Difference b/w git reflog and git log ???
+        Git log:  it will how only commit id which u have committed
+        commit cd560ebcda3ab3fa9972c9feb38f3c16fd828443
+	Author: kancharlamanikumar <kmanikumar.2@gmail.com>
+	Date: Mon Jun 17 09:00:59 2019 +0000 tuoch
+
+
+	Git reflog:   it will detailed information i.e history……which command u use for commit ,clone, reset entire local history u can see e.g.: 
+	cd560eb HEAD@{0}: commit (amend): tuoch
+	e4e313d HEAD@{1}: reset: moving to e4e313dfe232761d09628d5ba6965c7a132b8a85
+	4a26b87 HEAD@{2}: commit: rectified
+	4e313d HEAD@{3}: commit: tuoch
+	9641d26 HEAD@{4}: clone: from https://github.com/kancharlamanikumar/tesing.git
+
+The reflog is an ordered list of the commits that HEAD has pointed to: it's undo history for your repo. The reflog isn't part of the repo itself (it's stored separately to the commits themselves) and isn't included in pushes, fetches or clones; it's purely local.
+
+*****Aside: understanding the reflog means you can't really lose data from your repo once it's been committed. If you accidentally reset to an older commit, or rebase wrongly, or any other operation that visually "removes" commits, you can use the reflog to see where you were before and git reset --hard back to that ref to restore your previous state. Remember, refs imply not just the commit but the entire history behind it.
+	 
+	git reflog --relative-date  ------flag to show date
+	git reflog --all            ------ show all refs
+	
+      =======================================================
+      
+      How to resolve conflicts???
+      
+        Using merge tool we can see the conflicts
+        Manually we will see and resolve conflicts
+	
+      
