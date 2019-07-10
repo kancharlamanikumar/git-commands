@@ -75,6 +75,52 @@ Dependency management:
            
            =========================================================
            
+           profiles:
+           ===========
+           What is Build Profile?
+A Build profile is a set of configuration values, which can be used to set or override default values of Maven build. Using a build profile, you can customize build for different environments such as Production v/s Development environments.
+
+Profiles are specified in pom.xml file using its activeProfiles/profiles elements and are triggered in variety of ways. Profiles modify the POM at build time, and are used to give parameters different target environments (for example, the path of the database server in the development, testing, and production environments).
+
+Types of Build Profile
+Build profiles are majorly of three types.
+
+Type	Where it is defined:
+
+Per Project	Defined in the project POM file, pom.xml
+Per User	     Defined in Maven settings xml file (%USER_HOME%/.m2/settings.xml)
+Global	     Defined in Maven global settings xml file (%M2_HOME%/conf/settings.xml)
+
+if u mention  <activeProfiles>
+      <activeProfile>test</activeProfile>
+   </activeProfiles>
+   
+   By default test mention will execute eventhough if u do not mention -P in the goal
+   because we set profile as default
+   
+   
+   <profiles>
+    		<profile>
+    			<id>rel</id>
+    			<modules>
+    				<module>***********</module>
+    				<module>***********</module> 
+    			</modules>
+           	<id>dev</id>
+		    <modules>
+			    	<module>**********</module>
+			    	<module>**********</module>
+    			</modules>
+    			<activation>
+            		<activeByDefault>true</activeByDefault>
+        		</activation>     
+    		</profile>
+		<profile>
+          
+          By defalut if u execute any goal dev profile will execute because we set as bedefalut
+          if u want to execute rel profile mvn goal -p rel then only release profile will execute
+=========================================================================================================
+           
            
            
            
