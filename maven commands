@@ -1,0 +1,81 @@
+Dependency management:  
+
+     suppose in parent maven pom.xml they will mention as 
+     <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>2.5</version>
+        </dependency>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>3.8.1</version>
+          <scope>test</scope>
+        </dependency>
+        </dependencyManagement>
+        
+        
+        But coming to child pom we will mention as 
+        
+          <dependencies>
+        <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </dependency>
+        
+        so they will not mention version tag.....so the version will manage centerally that is call dependency management
+        
+        ====================================================
+        
+        Transtive dependency:
+        
+        suppose while ececuting the goal it will download all dependcy plugins so by that the war file size will increase...so what they will do is 
+        in order to avoid and i do not want to download unuseful dependices in order to decrease the war file
+        
+        so what they will do is 
+        
+        <exclusions>
+                <exclusion>
+                  <groupId>org.sonatype.sisu</groupId>
+                  <artifactId>sisu-guice</artifactId>
+                </exclusion>
+            </exclusions>
+            
+            so by doing this while downloaded dependcies it will exclude this dependency and war file was generated
+            
+            ====================================================
+            
+            mvn help:effective-pom -Doutput=pom_eff.xml --> gives effective pom
+            
+           this is to generate super pom that is while writing maven the will mention one pom(super pom) in that they will mention the maven path and where to store 
+           war file everything they will mention in this pom
+           
+           
+          The Super POM is Maven’s default POM. All POMs inherit from a parent or default (despite explicitly defined or not). This base POM is known as the Super POM, and contains values inherited by default.
+          Maven use the effective POM (configuration from super pom plus project configuration) to execute relevant goal. It helps developers to specify minimum configuration detail in his/her pom.xml. Although configurations can be overridden easily.
+
+          mvn help:effective-pom -Doutput=pom_eff.xml or mvn help:effective-pom 
+
+           
+           =======================================================
+           
+           
+           mvn dependency:tree --> it will show all dependency tree
+           
+           ========================================================
+           
+           Deploy : copying artifacts to central repo(nexus)
+           
+           ========================================================
+           
+           
+           mvn help:evaluate -Dexpression="project.artifactId" | grep -V [info] | grep -v down------to get artifact id
+           
+           =========================================================
+           
+           
+           
+           
+        
