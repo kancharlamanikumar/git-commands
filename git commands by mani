@@ -1,9 +1,10 @@
         git config --global --edit  -----Open the global configuration file in a text editor for manual editing.
 	git log --author= ”<authorname>” -----Search for commits by a particular author
-	git diff --cached.  --------------- if u are in staging area then by this command we can see the difference from staging to workspace
+	git diff --cached.  --------------- if u are in staging area then by this command we can see the difference from 
+	                                    staging to workspace
         
 	=============================================
-	by defalut if u create or push it will go to master branch....But i want the default branch is some other branch not as master.....then go to settings----branches----there chande default branch master to some other branch -----then update
+	by defalut if u create or push it will go to master branch....But i want the default branch is some other branch not as master.....then go to settings----branches----there change default branch master to some other branch -----then update
 	go to settings---notifications----give from mail id and approver mail id-----so when u Setup email addresses to receive notifications when push events are triggered
 	If u want to add key -----go to settings---deploy keys----add u r local key ----then add---so by doing this we can push local to github
 	
