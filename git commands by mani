@@ -41,6 +41,10 @@
            And also commit id is mixed with this commit
            Replace the last commit with the staged changes and last commit combined
 	   
+	   Helpful hint: You can always edit your last commit message, before pushing, by using:
+
+              $ git commit --amend
+	   
 	 ===============================================
 	 
 	 what is upstream and downstream in git ??
